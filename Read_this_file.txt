@@ -1,0 +1,1 @@
+This file contains instructions on how to configure a raspberry pi as an IoT controller for a Niles GXR-2.
