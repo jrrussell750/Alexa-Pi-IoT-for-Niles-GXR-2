@@ -1,4 +1,6 @@
-The best way to implement a Niles controller that uses alexa is to use an Amazon 
+** Please note:  This document is under development and may change daily.  **
+
+The best way to implement an Alexa controller for a Niles GXR-2 is to use an Amazon 
 skill to communicate with a raspberry pi via an MQTT broker.  A lambda function 
 that is triggered by the skill publishes update messages to a topic on the broker 
 and the raspberry pi subscribes to the topic and acts on the update messages.
