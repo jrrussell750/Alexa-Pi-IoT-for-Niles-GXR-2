@@ -1,0 +1,85 @@
+The best way to implement a Niles controller that uses alexa is to use an Amazon 
+skill to communicate with a raspberry pi via an MQTT broker.  A lambda function 
+that is triggered by the skill publishes update messages to a topic on the broker 
+and the raspberry pi subscribes to the topic and acts on the update messages.
+Traffic would be one way and could be QoS 0 (up to one message) because message
+loss would be immediately recognized by the user as a command failure.  The 
+result would be that the user would merely repeat the command.
+
+The build process would be as follows:
+
+Create an Alexa skill
+Create a new lambda function that publishes to the AWS MQTT broker (this would be done on the 
+AWS console, not the skills console)
+Paste the skill ID into the configuration for the lambda function
+Alter the endpoint on the Alexa skill to point to the new lambda function
+Create a skill trigger in the lambda function  
+Alter the lambda profile to allow MQTT traffic 
+Test your code with the AWS IoT test console on the IoT server
+Write code for the raspberry pi that subscribes to the AWS MQTT broker
+Use the alexa app or web site to install your skill
+Test the skill with voice commands to Alexa 
+
+Let's look at each step in detail:
+
+1. Create an Alexa skill
+
+There are several sub-steps to this step, and you need several things to make this work:
+
+An amazon.com account
+At least one echo device, or a cell phone with the amazon alexa app installed.
+Internet access
+A device that is powerfull enough to interact with amazon consoles (Raspberry pi with raspian would work.)
+
+a.  Log into the Alexa Skills Kit Developers Console (https://developer.amazon.com/alexa/console/ask).  You will be presented 
+with the skills menu page.
+b.  Click on the "Create Skill".  The "Create New Skill" page will display.
+c.  Enter a name for your skill and verify that "Custom Model" is selected as the model to add to your skill.  Click 
+on the "Create Skill" button.  Alexa will create your skill.
+d.  Navigate to the JSON editor under Interaction Model in the left menu pane of the console.  Delete the default JSON code
+in the editor.  
+e.  Open the gxr2.json file in this repository.  Copy the contents of the file and paste it into the JSON editor.
+f.  Press on the Save button to save the code.  
+g.  Go back to the skills menu page.  Your skill should be listed,
+h.  Click on the "Copy Skill ID" link under your skill name in the list.  Your Skill ID will be copied to the clipboard.
+
+
+2.  Create a new lambda function that publishes to the AWS MQTT broker
+
+Successful completion of Step 1 is necessary to complete this step.  Also, you will need to create a separate account
+on an Alexa Web Services server.  This is a separate service from the Alexa Skills Kit, and it is a good idea
+to bookmark or save the URLs for both consoles, as they are difficult to locate if you don't know where to look. The URL
+for the AWS console is dependent on the region that you are in.  For example, if you are on the West Coast, your
+region would be "us-west-2" and the URL for your console would be 
+"https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2"
+
+You can start by going to https://console.aws.amazon.com/ to get the URL for your region.
+
+You are going to require a separate account on this server, and your log in includes a Captcha dialog with letters and numbers that 
+are sometimes difficult to interpret.  This server also has a nasty habit of logging you out, even when you leave the Web page 
+for only a few minutes.  If you are logged out, you'll want to close your browser, then reopen it before logging in. 
+
+The following are the steps to create the lambda function:
+
+a.  Log into the Amazon Web Services console (https://console.aws.amazon.com/)
+b.  Type "lambda" in the search text box and press Enter.  Select lamda from the list of services that display.
+    The lambda function page will display.
+c.  Click on the "New Function" button. The create function page will display.
+d.  Enter a name for the function and click on the "create function" button.  The function will be created.
+e.  Download the contents of this repository to your local computer and extract the files.
+f.  Locate the index.js and al
+
+3. Paste the skill ID into the configuration for the lambda function
+
+The skill ID was copied in step 1e.  To complete this step you need to paste it into the skill ID text box using these procedures:
+
+a.  From the functions page of the AWS lambda control panel, click on the function that you created.  The page for the function 
+    will display.
+b.  Click on the "add trigger" button.  The "Add Trigger" page will display.
+c.  Click on the down arrow to the right of the "Select a Trigger" text box.  A list of triggers will display.
+d.  Click on the "Alexa Skills Kit" trigger to select it. The "Trigger configuration" page will display.
+e.  Paste the "Skill ID" copied in Step 1 to the "Skill ID" text box and then click on Add.  The "Function overview" page displays 
+    and a confirmation message will display,
+
+
+  
