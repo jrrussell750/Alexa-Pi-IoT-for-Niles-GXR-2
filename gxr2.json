@@ -1,0 +1,135 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "g x r two",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "setintent",
+                    "slots": [
+                        {
+                            "name": "zone",
+                            "type": "ZONE"
+                        },
+                        {
+                            "name": "device",
+                            "type": "DEVICE"
+                        }
+                    ],
+                    "samples": [
+                        "set {zone} to {device}",
+                        "set input to {device} in {zone}"
+                    ]
+                },
+                {
+                    "name": "levelintent",
+                    "slots": [
+                        {
+                            "name": "up_down",
+                            "type": "UP_DOWN"
+                        },
+                        {
+                            "name": "zone",
+                            "type": "ZONE"
+                        }
+                    ],
+                    "samples": [
+                        "turn volume {up_down} in {zone}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "DEVICE",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "1",
+                                "synonyms": [
+                                    "audio system",
+                                    "tape recorder",
+                                    "cassette player",
+                                    "tuner",
+                                    "audio",
+                                    "glen",
+                                    "ringo",
+                                    "george",
+                                    "paul",
+                                    "john",
+                                    "mp3 player",
+                                    "TV",
+                                    "record player",
+                                    "dvd player",
+                                    "cd player"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ZONE",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "1",
+                                "synonyms": [
+                                    "garage",
+                                    "family room",
+                                    "home theater",
+                                    "patio",
+                                    "kitchen",
+                                    "basement",
+                                    "guest bedroom",
+                                    "master bathroom",
+                                    "master bedroom",
+                                    "dining room",
+                                    "living room",
+                                    "zone 6",
+                                    "zone 5",
+                                    "zone 4",
+                                    "zone 3",
+                                    "zone 2",
+                                    "zone 1"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "UP_DOWN",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "down"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "up"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
