@@ -99,5 +99,7 @@ e.  Paste the "Skill ID" into the "Skill ID" text box and then click on the "Add
 
 5.  Copy the boilerplate javascript code to the lambda function and customize it.
 
-a.  Delete the index.js file 
-b.  Copy the boilerplate index.js 
+a.  Navigate to the code source screen for the gxr2 lambda skill.
+b.  Create a file called AlexaSkill.js.
+c.  Copy the boilerplate code from the index.js and AlexaSkill.js files on your local computer to the corresponding files for the lambda function.
+d.  
