@@ -20,7 +20,8 @@ Alter the endpoint on the Alexa skill to point to the new lambda function
 Create a skill trigger in the lambda function  
 Alter the lambda profile to allow MQTT traffic 
 Test your code with the AWS IoT test console on the IoT server
-Write code for the raspberry pi that subscribes to the AWS MQTT broker
+Register the raspberry pi as a device on AWS IoT and download the connection kit
+Install and customize code on the raspberry pi that subscribes to the AWS MQTT broker
 Use the alexa app or web site to install your skill
 Test the skill with voice commands to Alexa 
 
@@ -34,7 +35,7 @@ a.  Open a web browser on your local computer.
 b.  Navigate to https://github.com/jrrussell750/Alexa-Pi-IoT-for-Niles-GXR-2
 c.  Click on the green "Code" button and select Download ZIP from the menu that displays. Github will 
 download a zip file containing the all of the files from the repository.
-d.  Extract the zip file to a folder.
+d.  Extract the zip file to a folder on your local computer.
 
 2.  Create an Alexa skill
 
@@ -43,7 +44,7 @@ There are several sub-steps to this step, and you need several things to make th
 An amazon.com account
 At least one echo device, or a cell phone with the amazon alexa app installed.
 Internet access
-A device that is powerfull enough to interact with amazon consoles (Raspberry pi with raspian would work.)
+A device that is powerfull enough to interact with amazon consoles (Raspberry pi 3b or above with raspian.)
 
 a.  Log into the Alexa Skills Kit Developers Console (https://developer.amazon.com/alexa/console/ask).  You will be presented 
 with the skills menu page.
@@ -66,14 +67,16 @@ Successful completion of Step 2 is necessary to complete this step.  Also, you w
 on an Alexa Web Services server.  This is a separate service from the Alexa Skills Kit, and it is a good idea
 to bookmark or save the URLs for both consoles, as they are difficult to locate if you don't know where to look. The URL
 for the AWS console is dependent on the region that you are in.  For example, if you are on the West Coast, your
-region would probably be "us-west-2" and the URL for your console would be 
+region would probably be "us-west-2" and the URL for your console would be as follows:
+
 "https://us-west-2.console.aws.amazon.com/console/home?region=us-west-2"
 
-You can start by going to https://console.aws.amazon.com/ to get the URL for your region.
+If you're not sure, you can go to "https://console.aws.amazon.com/" to get the URL for your region.
 
-You are going to require a separate account on this server, and your log in includes a Captcha dialog with letters and numbers that 
-are sometimes difficult to interpret.  This server also has a nasty habit of logging you out, even when you leave the Web page 
-for only a few minutes.  If you are logged out, you'll want to close your browser, then reopen it before logging in. 
+Please note:  You are going to require a separate account for this server, and your log in includes a Captcha dialog with 
+letters and numbers that are sometimes difficult to interpret.  This server also has a nasty habit of logging you out, even 
+when you leave the Web page for only a few minutes.  If you are logged out, you'll want to close your browser, then reopen 
+it before logging in. 
 
 The following are the steps to create the lambda function:
 
@@ -100,6 +103,6 @@ e.  Paste the "Skill ID" into the "Skill ID" text box and then click on the "Add
 5.  Copy the boilerplate javascript code to the lambda function and customize it.
 
 a.  Navigate to the code source screen for the gxr2 lambda skill.
-b.  Create a file called AlexaSkill.js.
+b.  Right-click in the left-hand pane and select Create a file called AlexaSkill.js.
 c.  Copy the boilerplate code from the index.js and AlexaSkill.js files on your local computer to the corresponding files for the lambda function.
 d.  
