@@ -111,4 +111,9 @@ f.  Open AlexaSkill.js on your local computer and copy its contents.
 g.  Paste the code into the newly created file on the AWS Console.
 h.  Click the "Deploy" button at the top of the Code source page.  This will save your code.
 
-  
+6.  Alter the endpoint on the Alexa skill to point to the new lambda function
+
+This creates a connection between the Alexa skill and the lambda function.  When the skill receives a voice command, it will pass parameters to 
+the lambda function using the endpoint.  
+
+a.  
