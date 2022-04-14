@@ -100,9 +100,15 @@ d.  Click on the "Alexa Skills Kit" trigger to select it. The "Trigger configura
 e.  Paste the "Skill ID" into the "Skill ID" text box and then click on the "Add" button.  The "Function overview" page displays 
     and a confirmation message will display,
 
-5.  Copy the boilerplate javascript code to the lambda function and customize it.
+5.  Copy the boilerplate javascript code from AlexaSkill.js and index.js to the lambda function and customize it.
 
 a.  Navigate to the code source screen for the gxr2 lambda skill.
-b.  Right-click in the left-hand pane and select Create a file called AlexaSkill.js.
-c.  Copy the boilerplate code from the index.js and AlexaSkill.js files on your local computer to the corresponding files for the lambda function.
-d.  
+b.  Right-click in the left-hand pane and select "New File" from the menu that displays.
+c.  Enter a name for the file (AlexaSkill.js will work).
+d.  Open index.js on your local computer and copy its contents.  
+e.  Delete any code in the index.js file on the AWS Console and paste the code from your local computer into that file.
+f.  Open AlexaSkill.js on your local computer and copy its contents.
+g.  Paste the code into the newly created file on the AWS Console.
+h.  Click the "Deploy" button at the top of the Code source page.  This will save your code.
+
+  
