@@ -119,3 +119,23 @@ b.  Switch to the Alexa developers console for your skill and then click on the 
 c.  Verify that the AWS Lambda ARN radio button is selected. 
 d.  Paste the ARN into the default region text box to the right of the radio buttton.
 
+7,  Alter the lambda profile to allow MQTT traffic 
+
+This provides permissions for the lambda function to publish messages on the AWS MQTT broker
+
+8.  Test your code with the AWS IoT test console on the IoT server
+
+
+9.  Register the raspberry pi as a device on AWS IoT and download the connection kit
+
+This provides credentials that the raspberry pi will use to retrieve messages from the AWS MQTT broker 
+
+10. Install and customize code on the raspberry pi that subscribes to the AWS MQTT broker
+
+Copy credentials to  
+
+
+11. Use the alexa app or web site to install your skill
+
+
+12. Test the skill with voice commands to Alexa 
