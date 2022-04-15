@@ -16,7 +16,6 @@ Create a new lambda function that publishes to the AWS MQTT broker (this is done
 Paste the skill ID into the configuration for the lambda function
 Copy the boilerplate javascript code to the lambda function and customize it
 Alter the endpoint on the Alexa skill to point to the Amazon Resource Name (ARN) for the new lambda function
-Create a skill trigger in the lambda function  
 Alter the lambda profile to allow MQTT traffic 
 Test your code with the AWS IoT test console on the IoT server
 Register the raspberry pi as a device on AWS IoT and download the connection kit
@@ -86,10 +85,10 @@ c.  Click on the "Create Function" button. The create function page will display
 d.  Enter a name for the function and click on the "create function" button at the bottom right hand corner of the page.  
     The function will be created.
 
-4. Paste the skill ID into the configuration for the lambda function
+4. Add a trigger for the lambda function and paste the skill ID into it.
 
-The skill ID was copied in step 2h and saved to a file.  To complete this step you need to paste it into the skill ID text box 
-using these procedures:
+The skill ID was copied in step 2h and saved to a file.  To complete this step you need to create a trigger and 
+then paste the ID into the skill ID text box using these procedures:
 
 a.  From the functions page of the AWS lambda control panel, click on the function that you created.  The page for the function 
     will display.
@@ -120,8 +119,3 @@ b.  Switch to the Alexa developers console for your skill and then click on the 
 c.  Verify that the AWS Lambda ARN radio button is selected. 
 d.  Paste the ARN into the default region text box to the right of the radio buttton.
 
-7.  Create a skill trigger in the lambda function  
-
-The skill trigger will run the lambda function whenever a command is sent from the gxr2 skill to the lambda ARN.   
-
-a.  
