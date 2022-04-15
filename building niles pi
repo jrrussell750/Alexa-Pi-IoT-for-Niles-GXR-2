@@ -12,11 +12,10 @@ The build process would be as follows:
 
 Obtain the contents of this repository from github
 Create an Alexa skill
-Create a new lambda function that publishes to the AWS MQTT broker (this would be done on the 
-AWS console, not the skills console)
+Create a new lambda function that publishes to the AWS MQTT broker (this would be done on the AWS console, not the skills console)
 Paste the skill ID into the configuration for the lambda function
 Copy the boilerplate javascript code to the lambda function and customize it
-Alter the endpoint on the Alexa skill to point to the new lambda function
+Alter the endpoint on the Alexa skill to point to the Amazon Resource Name (ARN) for the new lambda function
 Create a skill trigger in the lambda function  
 Alter the lambda profile to allow MQTT traffic 
 Test your code with the AWS IoT test console on the IoT server
@@ -102,7 +101,7 @@ e.  Paste the "Skill ID" into the "Skill ID" text box and then click on the "Add
 
 5.  Copy the boilerplate javascript code from AlexaSkill.js and index.js to the lambda function and customize it.
 
-a.  Navigate to the code source screen for the gxr2 lambda skill.
+a.  Navigate to the code source screen for the gxr2 lambda function.
 b.  Right-click in the left-hand pane and select "New File" from the menu that displays.
 c.  Enter a name for the file (AlexaSkill.js will work).
 d.  Open index.js on your local computer and copy its contents.  
@@ -111,9 +110,11 @@ f.  Open AlexaSkill.js on your local computer and copy its contents.
 g.  Paste the code into the newly created file on the AWS Console.
 h.  Click the "Deploy" button at the top of the Code source page.  This will save your code.
 
-6.  Alter the endpoint on the Alexa skill to point to the new lambda function
+6.  Alter the endpoint on the Alexa skill to point to the Amazon Resource Name (ARN) for the new lambda function
 
 This creates a connection between the Alexa skill and the lambda function.  When the skill receives a voice command, it will pass parameters to 
 the lambda function using the endpoint.  
 
-a.  
+a.  Click on the Copy ARN button on the top right of the lambda function screen.  This will copy the Amazon Resource Name to the clipboard.
+b.  Switch to the Alexa developers screen and then click on the endpoints link.
+c.  Paste the ARN into the first 
