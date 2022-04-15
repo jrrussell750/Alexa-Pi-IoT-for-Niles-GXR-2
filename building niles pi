@@ -115,6 +115,8 @@ h.  Click the "Deploy" button at the top of the Code source page.  This will sav
 This creates a connection between the Alexa skill and the lambda function.  When the skill receives a voice command, it will pass parameters to 
 the lambda function using the endpoint.  
 
-a.  Click on the Copy ARN button on the top right of the lambda function screen.  This will copy the Amazon Resource Name to the clipboard.
-b.  Switch to the Alexa developers screen and then click on the endpoints link.
-c.  Paste the ARN into the first 
+a.  Click on the Copy ARN button on the top right of the lambda function screen.  This will copy the ARN to the clipboard on your local computer.
+b.  Switch to the Alexa developers console for your skill and then click on the endpoints link in the left-hand pane of the console.
+c.  Verify that the AWS Lambda ARN radio button is selected. 
+d.  Paste the ARN into the default region text box to the right of the radio buttton.
+
