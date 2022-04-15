@@ -128,7 +128,7 @@ This provides permissions for the lambda function to publish messages on the AWS
 
 9.  Register the raspberry pi as a device on AWS IoT and download the connection kit
 
-This provides credentials that the raspberry pi will use to retrieve messages from the AWS MQTT broker 
+This provides credentials that the raspberry pi will use to subscribe to topics on the AWS MQTT broker 
 
 10. Install and customize code on the raspberry pi that subscribes to the AWS MQTT broker
 
