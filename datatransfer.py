@@ -19,6 +19,7 @@ myMQTTClient.configureMQTTOperationTimeout(5) # 5 sec
 input_string = ""
 zonenum = b"\x00"
 inputnum = b"\x00"
+navnum = b"\x2C"
 count = 0
 
 def customCallback(self, params, packet):
@@ -34,7 +35,7 @@ while (1):
     myMQTTClient.subscribe("niles/gxr2", 0, customCallback)
     count = 0  # Initialize count to zero
 
-    while (count < 1800):  # This loop restarts the connection if no message is received within 1 hour
+    while (count < 100):  # This loop restarts the connection if no message is received within 1 hour
     
         string_length = len(input_string)
         if (string_length > 0):
@@ -74,6 +75,7 @@ while (1):
             # select zone code - used for zone-level commands (setintent or levelintent)
             # you can modify the zone names to match your GXR-2 configuration
  
+ 
             if((intent=="set") or (intent=="adjust")):
                 zonenum = b"\x21"
                 if(zone=="1" or zone=="living room"):
@@ -98,11 +100,19 @@ while (1):
                     print("No zone found")
                     i=0
                 currentlevel = statusarray[i]
+            
+            #  Open socket to Niles GXR-2
 
-                # select device code - used for device-level commands (setintent or prevnextintent)
-                # You can modify the device names to match your GXR-2 configuration
+            UDP_IP = "10.100.0.1"
+            UDP_PORT = 6001
+            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+            
+        
+
+            # select device code - used for the set intent
+            # You can modify the device names to match your GXR-2 configuration
   
-            if((intent=="set") or (intent=="goto")):  
+            if((intent=="set")): 
                 inputnum = b"\x04"    
                 if(device=="1" or device=="a.m. FM"):
                     inputnum = b"\x01"
@@ -119,28 +129,50 @@ while (1):
                 elif(device=="off"):
                     inputnum = b"\x0a"
                 else:
-                    print("No device found")  
-
-                #  Open socket to Niles GXR-2
-
-            UDP_IP = "10.100.0.1"
-            UDP_PORT = 6001
-            sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
+                    print("No device found for set intent")
+                    
             #  Compose and send message to set the input for a zone in the GXR-2
 
-            if (intent=="set"):
+
                 MESSAGE = b"\x00\x0e\x00" + zonenum + b"\x00\x0b\x61\x06" + inputnum + b"\x00\xff"
                 sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
+
+            # select goto code - used for the goto intent
+            # Please note that this command uses a set of input values that are different from
+            # those used by setintent
+            # You can modify the device names to match your GXR-2 configuration
+
  
+            elif(intent=="goto"):
+                if(device=="1" or device=="a.m. FM"):
+                    inputnum = b"\x81"
+                elif(device=="2" or device=="1 pens music" or device=="music" ):
+                    inputnum = b"\x82"
+                elif(device=="3" or device=="TV"):
+                    inputnum = b"\x83"
+                elif(device=="4" or device=="echo"):
+                    inputnum = b"\x84"
+                elif(device=="5" or device=="glen"):
+                    inputnum = b"\x85"
+                elif(device=="6" or device=="John"):
+                    inputnum = b"\x86"
+                else:
+                    print("No device found for goto intent")  
+
+                navnum = b"\x2C"
+                if(zone=="next" or zone=="next song"):
+                    navnum = b"\x2c"
+                elif(zone=="previous" or zone=="previous song"):
+                    navnum = b"\x2b"
+
             # Compose and send message to go to next or previous song for a device
- 
-            elif (intent=="goto"):
-                print("we are here")
-        
+
+                MESSAGE = b"\x00\x0e\x00" + inputnum + b"\x00\x0b\x61\x06" + navnum + b"\x00\xff"
+                sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
+                        
             # Compose and send message to turn volume up or down   
                 
-            elif (intent=="adjust"):
+            elif(intent=="adjust"):
                 vollevel = device
                 if (int(currentlevel) < (int(vollevel) * 10)):
                     delta = (int(vollevel) * 10) - int(currentlevel)
@@ -152,8 +184,7 @@ while (1):
                     sock.sendto(MESSAGE, (UDP_IP, UDP_PORT))
                     time.sleep(.01)
             sock.close()
-            print (intent + " " + zone + " " + device)
-         
+       
         else:
             count = count+1
         print(count)
@@ -162,4 +193,5 @@ while (1):
         input_string = ""
         time.sleep(2)
     
-    myMQTTClient.disconnect()   
+    myMQTTClient.disconnect()
+    time.sleep(10)
