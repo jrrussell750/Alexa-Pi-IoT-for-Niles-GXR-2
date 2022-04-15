@@ -11,8 +11,8 @@ result would be that the user would merely repeat the command.
 The build process would be as follows:
 
 Obtain the contents of this repository from github
-Create an Alexa skill
-Create a new lambda function that publishes to the AWS MQTT broker (this would be done on the AWS console, not the skills console)
+Create an Alexa skill (this is done on the skills console)
+Create a new lambda function that publishes to the AWS MQTT broker (this is done on the Amazon Web Services console)
 Paste the skill ID into the configuration for the lambda function
 Copy the boilerplate javascript code to the lambda function and customize it
 Alter the endpoint on the Alexa skill to point to the Amazon Resource Name (ARN) for the new lambda function
@@ -120,3 +120,8 @@ b.  Switch to the Alexa developers console for your skill and then click on the 
 c.  Verify that the AWS Lambda ARN radio button is selected. 
 d.  Paste the ARN into the default region text box to the right of the radio buttton.
 
+7.  Create a skill trigger in the lambda function  
+
+The skill trigger will run the lambda function whenever a command is sent from the gxr2 skill to the lambda ARN.   
+
+a.  
