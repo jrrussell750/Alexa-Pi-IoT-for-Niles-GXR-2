@@ -132,10 +132,12 @@ This provides credentials that the raspberry pi will use to subscribe to topics 
 
 10. Install and customize code on the raspberry pi that subscribes to the AWS MQTT broker
 
-Copy credentials to  
+Copy credentials to datatransfer.py and customize GXR2 zone and device names to match your installation 
 
 
 11. Use the alexa app or web site to install your skill
 
+
+This can be done from the alexa app on your iPhone.
 
 12. Test the skill with voice commands to Alexa 
