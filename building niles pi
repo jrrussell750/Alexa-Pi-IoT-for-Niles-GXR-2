@@ -129,6 +129,13 @@ d.  Paste the ARN into the default region text box to the right of the radio but
 
 This provides permissions for the lambda function to publish messages on the AWS MQTT broker
 
+a.  type IAM in the search text box and then mouse over "IAM" from the drop-down menu that displays.
+
+b.  Select "Policies" from the left-hand menu that displays and then click on ‘Create Policy’.  The visualizer screen will open
+
+b.  Select IoT as the service, and within Actions, select ‘Publish’ from the ‘Write’ dropdown. Select ‘All resources’ for now (you can make the resource selection ‘Specific’ later on). Don’t bother with ‘Request conditions’.
+
+
 8.  Test your code with the AWS IoT test console on the IoT server
 
 
