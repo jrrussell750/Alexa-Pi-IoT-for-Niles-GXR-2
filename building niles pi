@@ -46,9 +46,9 @@ d.  Extract the zip file to a folder on your local computer.
 There are several sub-steps to this step, and you need several things to make this work:
 
 An amazon.com account
-At least one echo device, or a cell phone with the amazon alexa app installed.
+At least one Amazon echo device, or a cell phone with the Amazon alexa app installed.
 Internet access
-A device that is powerfull enough to interact with amazon consoles (Raspberry pi 3b or above with raspian.)
+A device with a Web browser that is powerfull enough to interact with amazon consoles.
 
 a.  Log into the Alexa Skills Kit Developers Console (https://developer.amazon.com/alexa/console/ask).  You will be presented 
 with the skills menu page.
@@ -68,7 +68,7 @@ j.  Save the Skill ID file using a name you can remember (something like skillid
 3.  Create a new lambda function that publishes to the AWS MQTT broker
 
 Successful completion of Step 2 is necessary to complete this step.  Also, you will need to create a separate account
-on an Alexa Web Services server.  This is a separate service from the Alexa Skills Kit, and it is a good idea
+on an Amazon Web Services (AWS) server.  This is a separate service from the Alexa Skills Kit, and it is a good idea
 to bookmark or save the URLs for both consoles, as they are difficult to locate if you don't know where to look. The URL
 for the AWS console is dependent on the region that you are in.  For example, if you are on the West Coast, your
 region would probably be "us-west-2" and the URL for your console would be as follows:
