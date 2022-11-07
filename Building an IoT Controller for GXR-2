@@ -130,11 +130,18 @@ d.  Paste the ARN into the default region text box to the right of the radio but
 This provides permissions for the lambda function to publish messages on the AWS MQTT broker
 
 a.  type IAM in the search text box and then mouse over "IAM" from the drop-down menu that displays.
-
-b.  Select "Policies" from the left-hand menu that displays and then click on ‘Create Policy’.  The visualizer screen will open
-
-b.  Select IoT as the service, and within Actions, select ‘Publish’ from the ‘Write’ dropdown. Select ‘All resources’ for now (you can make the resource selection ‘Specific’ later on). Don’t bother with ‘Request conditions’.
-
+b.  Click on the "Policies" link under Top Features. The IAM Policy management screen will display.
+c.  Click on "Create Policy".  The create policy screen will open with the Visual Editor tab selected.
+d.  Click on the Choose a service link.  and then enter "IoT" in the search text box that appears.  A list of IoT services will display.
+e.  Click on the "IoT" service to select it.  The IoT screen will display.
+f.  Click on the right arrow next to the "Write" checkbox.  A list of write options will display.
+g.  Click on the "Publish" option to select it.
+h.  Click on the right arrow next to "Resources" and then click on the "Any in this account" check box that appears on the right.
+i.  Click on the "Next:Tags" button at the bottom, right of the screen.  The Add Tags screen will display.
+j.  Click on the "Next:Review" button at the bottom, right of the screen.  The "Review policy" screen will display.
+k.  In the name text box, type the name of your policy.  Something like GXR2_Publish would work.
+l.  Click on the "Create Policy" button at the bottom of the screen.  You will return to the policy screen with a notification that the policy 
+    has been created.
 
 8.  Test your code with the AWS IoT test console on the IoT server
 
