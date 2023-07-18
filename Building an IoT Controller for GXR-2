@@ -98,10 +98,12 @@ then paste the ID into the skill ID text box using these procedures:
 
 a.  From the functions page of the AWS lambda control panel, click on the function that you created.  The page for the function 
     will display.
-b.  Click on the "add trigger" button.  The "Add Trigger" page will display.
-c.  Click on the down arrow to the right of the "Select a Trigger" text box.  A list of triggers will display.
-d.  Click on the "Alexa Skills Kit" trigger to select it. The "Trigger configuration" page will display.
-e.  Paste the "Skill ID" into the "Skill ID" text box and then click on the "Add" button.  The "Function overview" page displays 
+b.  Click on the "Configuration" tab at the top.  The configuration screen will display.
+c.  Select "Triggers" from the menu in the left-hand pane.  
+d.  Click on the "add trigger" button.  The "Add Trigger" page will display.
+e.  Click on the down arrow to the right of the "Select a Trigger" text box.  A list of triggers will display.
+f.  Click on the "Alexa Skills Kit" trigger to select it. The "Trigger configuration" page will display.
+g.  Paste the "Skill ID" into the "Skill ID" text box and then click on the "Add" button.  The "Function overview" page displays 
     and a confirmation message will display,
 
 5.  Copy the boilerplate javascript code from AlexaSkill.js and index.js to the lambda function and customize it.
