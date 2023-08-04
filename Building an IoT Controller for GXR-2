@@ -6,13 +6,19 @@ https://developer.amazon.com/alexa/console/ask  Alexa skills kit developers cons
 https://console.aws.amazon.com/  AWS developers console
 
 
-The best way to implement an Alexa controller for a Niles GXR-2 is to use an Amazon 
-skill to communicate with a raspberry pi via an MQTT broker.  A lambda function 
-that is triggered by the skill publishes update messages to a topic on the broker 
-and the raspberry pi subscribes to the topic and acts on the update messages.
-Traffic would be one way and could be QoS 0 (up to one message) because message
-loss would be immediately recognized by the user as a command failure.  The 
-result would be that the user would merely repeat the command.
+This project uses a raspberry pi as a Alexa voice controller for the Niles GXR2 Modular Multizone Receiver.  GXR2s are 
+used in whole house audio systems to allow independent input selection and control of up to six input devices in each
+of six zones.  In a typical installation, control panels are installed in each zone to allow users to select the 
+device they want to listen to.  The controllers also provide volume control over the zone and a means to access some
+of the functions provided by the input device.  However, Niles doesn't offer any integration with Alexa
+
+The best way to implement an Alexa controller for a Niles GXR2 is to use an Amazon skill to send commands to a raspberry pi 
+that is configured as an IoT device.  The skill is created using the amazon skills kit on an amazon server.  Then, it is linked
+to a piece of software known as a lambda function that translates the voice commands from alexa into IoT messages.  These 
+messages are then sent to an MQTT broker.  As an IoT device, the raspberry pi can subscribe to the broker, read the messages, 
+and translate them into control codes that are sent to the GXR2.  
+
+Please note that the Internet of Things (IoT) 
 
 The build process would be as follows:
 
